@@ -25,6 +25,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input' 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     imports: [
         CommonModule,
@@ -37,7 +38,8 @@ import { MatInputModule} from '@angular/material/input'
         MatTableModule,
         MatPaginatorModule,
         MatFormFieldModule,
-        MatInputModule 
+        MatInputModule ,
+        BrowserAnimationsModule
     ],
     declarations: [
         ComponentsComponent,

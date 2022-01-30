@@ -25,16 +25,25 @@ export class AppComponent implements OnInit {
                 window.document.activeElement.scrollTop = 0;
             }
             this.navbar.sidebarClose();
+            if(window.location.hash.includes('home')){
+                navbar.classList.add('navbar-transparent');
+            }else {
+                navbar.classList.remove('navbar-transparent');
+            }
         });
+
+      
         this.renderer.listen('window', 'scroll', (event) => {
+            if(window.location.hash.includes('home')){
+                navbar.classList.add('navbar-transparent');
             const number = window.scrollY;
-            if (number > 150 || window.pageYOffset > 150) {
+            if (number > 200 || window.pageYOffset > 200) {
                 // add logic
                 navbar.classList.remove('navbar-transparent');
-            } else {
-                // remove logic
-                navbar.classList.add('navbar-transparent');
             }
+        }else {
+            navbar.classList.remove('navbar-transparent');
+        }
         });
         var ua = window.navigator.userAgent;
         var trident = ua.indexOf('Trident/');

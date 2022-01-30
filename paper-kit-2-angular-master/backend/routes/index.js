@@ -43,8 +43,24 @@ router.post("/add_head_user", async (request, response) => {
 });
 
 router.get("/head_user", async (request, response) => {
-  const users = await headUserModel.find({});
+  let users = await headUserModel.find({});
   try {
+  users = users.map(user =>
+    {
+
+      user.membersOfFamily.push({
+      name: 'jitendar',
+      fatherName: 'Shravan Kumar',
+      gotra: 'Vanecha',
+      village: 'Mandli',
+      mobileNumber: '9680379063',
+      education: 'B.tech',
+      work: 'Software Engineer',
+      age: 26,
+      isHeadOfFamily: false})
+      return user;
+    } 
+    )
     response.send(users);
   } catch (error) {
     response.status(500).send(error);
